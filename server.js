@@ -10,6 +10,11 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// Root welcome endpoint
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to the Task Manager Backend API" });
+});
+
 // Routes
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/tasks", require("./routes/taskRoutes"));
